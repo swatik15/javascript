@@ -1,0 +1,106 @@
+<html>
+	<head>
+		<style>
+			textarea{
+			  width: 70%;
+			  height: 40%;
+			  padding: 12px 20px;
+			  box-sizing: border-box;
+			  border: 2px solid #ccc;
+			  border-radius: 4px;
+			  background-color: #f1f1f1;
+			  font-size: 16px;
+			  resize: none;
+			  
+			}
+			div {
+				font-size: 40px;
+				color: Red;
+				<!-- width: 30%; -->
+				
+			}
+			div#div1{
+			  width: 70%;
+			  height: 150px;
+			  padding: 12px 20px;
+			  box-sizing: border-box;
+			  border: 2px solid #ccc;
+			  border-radius: 4px;
+			  background-color: #f1f1f1;
+			  font-size: 16px;
+			  resize: none;
+			}
+			p{
+				font-size: 40px;
+				color: Red;
+				width: 50%;
+				
+			}
+			table{
+			  border: 5px solid black; 
+			  border-collapse: collapse;
+			  padding-right: 10px;
+			}
+			<!--th{
+			  padding-right: 15px;
+			}-->
+			button{
+				font-size:16px;
+				width:120px;
+			}
+			input{
+				font-size:16px;
+			}
+			
+		</style>
+		<script>
+			function interpretUserHTML(){
+				var str1 = document.getElementById("txt1");
+				document.getElementById("div1").innerHTML = str1.value;
+			}
+			
+			function setFontSize(){
+				var fontSize1 = document.getElementById("fontSize1").value;
+				if(isNaN(fontSize1)){
+					alert("Enter valid number");
+				}
+				else{
+					var fontSize2 = fontSize1 + "px";
+					document.getElementById("txt1").style.fontSize = fontSize2;
+				}
+				
+			}
+			
+			function clearText(){
+				document.getElementById("txt1").value = "";
+				document.getElementById("div1").innerHTML = "";
+			}
+			
+			function setFontSize(){
+				var fs = document.getElementById("fontSize1").style.fontSize;
+				//alert(h);
+			}
+			
+		</script>
+	</head>
+	<body onload="setFontSize()">
+		<table>
+			<tr>
+				<th><div style="padding-right:15px;">Type your HTML text here</div></th>
+				<!-- <th style="width:100">Font Size <input type="text" id="fontSize1" style="width:50" /></th> -->
+				<th style="width:100;padding-right:1px;"> <input type="text" id="fontSize1" style="width:50;height:25px;" /></th>
+				<th><button id="increaseFontSize" onClick=setFontSize() style="font-size:16px;"><b>Set Font Size</b></button></th>
+				<th><button id="clearText" onClick=clearText()  ><b>Clear Text</b></button></th>
+				<!--<th><button id="decreaseFontSize" onClick=decreaseFontSize()><b>Decrease Font Size</b></button></th>-->
+			</tr>
+		</table>
+		
+		
+		<textarea id="txt1"   onkeyup="interpretUserHTML()" > </textarea>
+		
+	
+		<p>HTML output</p>
+		<div id="div1"></div>
+		
+	</body>
+</html>
